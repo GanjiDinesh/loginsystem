@@ -1,0 +1,44 @@
+{% extends 'bootstrap4.html' %}
+{% block body %}
+<div class="container">
+    <h2>Add Student Details</h2>
+  <form action="readstudentdata" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="tbfname">Fname</label>
+      <input type="text" class="form-control" id="tbfname" placeholder="Enter Fname" name="tbfname">
+    </div>
+    <div class="form-group">
+      <label for="tblname">Lname</label>
+      <input type="text" class="form-control" id="tblname" placeholder="Enter Lname" name="tblname">
+    </div>
+    <div class="form-group">
+      <label for="tbemail">Email</label>
+      <input type="text" class="form-control" id="tbemail" placeholder="Enter Email" name="tbemail">
+    </div>
+    <div class="form-group">
+      <label for="tbmobile">Mobile</label>
+      <input type="text" class="form-control" id="tbmobile" placeholder="Enter Mobile" name="tbmobile">
+    </div>
+    <div class="form-outline mb-4">
+      <label class="from-label">City</label>
+      <select name="ddlcity" class="from-control">
+    <option>---select---</option>
+    {% for i in cities %}
+    <option>{{i.city_name}}</option>
+    {% endfor %}
+</select>
+    </div>
+    <div class="form-outline mb-4">
+      <label class="from-label" >Course</label>
+      <select name="ddlcourse" class="from-control">
+    <option>---select---</option>
+    {% for i in course %}
+    <option>{{i.course_name}}</option>
+    {% endfor %}
+</select>
+    </div>
+       <input type="submit" value="Add Student" class="btn btn-success">
+  </form>
+  </div>
+{% endblock %}

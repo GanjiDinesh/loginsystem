@@ -1,0 +1,29 @@
+{% extends 'bootstrap4.html' %}
+{% block body%}
+<table class="table">
+    <thead>
+      <tr>
+        <th>Fname</th>
+        <th>Lname</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>City</th>
+        <th>Course</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for i in students %}
+    <tr>
+        <td>{{i.fname}}</td>
+        <td>{{i.lname}}</td>
+        <td>{{i.email}}</td>
+        <td>{{i.mobile}}</td>
+        <td>{{i.city_name}}</td>
+        <td>{{i.course_name}}</td>
+        <td><a class="btn btn-warning" href="{% url 'update' i.id %}">Update</a></td>
+        <td><a class="btn btn-warning" href="{% url 'delete' i.id %}">Delete</a></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
